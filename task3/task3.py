@@ -7,7 +7,7 @@ from typing import Any
 if len(sys.argv) != 4:
     raise ValueError(
         "Invalid number of arguments supplied "
-        f"(must get 2 numbers, got {len(sys.argv) - 1} args)"
+        f"(must get 3 paths, got {len(sys.argv) - 1} args)"
     )
 
 try:

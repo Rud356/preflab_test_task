@@ -6,7 +6,7 @@ from pathlib import Path
 if len(sys.argv) != 3:
     raise ValueError(
         "Invalid number of arguments supplied "
-        f"(must get 2 numbers, got {len(sys.argv) - 1} args)"
+        f"(must get 2 paths, got {len(sys.argv) - 1} args)"
     )
 
 try:
