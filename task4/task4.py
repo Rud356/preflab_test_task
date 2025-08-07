@@ -129,7 +129,7 @@ optimized_variants_step_count: list[int] = [
     ),
     calculate_steps_count_for_average(
         listed_values,
-        # Assuming mean value is least affected and is middle of the values list
+        # Assuming median value is least affected and is middle of the values list
         calculate_best_value_by_median(listed_values)
     )
 ]
