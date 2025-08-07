@@ -76,8 +76,25 @@ def calculate_min_max_avg_value(values: list[int]) -> int:
         return math.ceil(average_value)
 
 
-def calculate_best_value_by_mean(values: list[int]) -> int:
-    return int(statistics.median(values))
+def calculate_best_value_by_median(values: list[int]) -> int:
+    median_value: float = statistics.median(values)
+    sub_average_count: int = 0
+    above_average_count: int = 0
+
+    for val in values:
+        if val < median_value:
+            sub_average_count += 1
+
+        else:
+            above_average_count += 1
+
+    # If there are more numbers below  - it makes sense to get closer to them
+    # and round down instead of up
+    if sub_average_count > above_average_count:
+        return math.floor(median_value)
+
+    else:
+        return math.ceil(median_value)
 
 
 def calculate_steps_count_for_average(values: list[int], average: int) -> int:
@@ -113,7 +130,7 @@ optimized_variants_step_count: list[int] = [
     calculate_steps_count_for_average(
         listed_values,
         # Assuming mean value is least affected and is middle of the values list
-        calculate_best_value_by_mean(listed_values)
+        calculate_best_value_by_median(listed_values)
     )
 ]
 print(min(optimized_variants_step_count))
