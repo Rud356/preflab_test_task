@@ -21,7 +21,7 @@ m: int = args[1]
 if n < 1:
     raise ValueError("Invalid length for array provided as n")
 
-initial_chain: list[int] = [i for i in range(1, n+1)]
+initial_chain: list[int] = [i for i in range(1, n + 1)]
 
 
 def generate_subchains_in_chain(
@@ -56,6 +56,7 @@ def calculate_chains_path(
             subchains.append(subchain)
 
     return [chain_parts[0] for chain_parts in subchains]
+
 
 calculated_path: list[int] = calculate_chains_path(initial_chain, m)
 path: str = "".join(map(str, calculated_path))
